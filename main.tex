@@ -1,5 +1,5 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[left=2mm,right=12mm,top=10mm,bottom=5mm]{geometry}
+\usepackage[left=12mm,right=22mm,top=10mm,bottom=5mm]{geometry}
 \usepackage{eulervm}
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
 
@@ -12,10 +12,57 @@
 \pagestyle{empty}
 
 \begin{document}
-\begin{tabularx}{\textwidth}{|X|X|} \hline
+\begin{tabularx}{\textwidth}{|>{\ttfamily}X|X|} \hline
   \multicolumn{2}{|c|}{\bf ~Jean Niklas L'orange \hfill MPI Cheatsheet~~}%
   \\ \hline
-  a & b
+  int MPI\_Allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, displs,
+  recvtype, comm) & Gathers data from all tasks and deliver it to all.
+  \\ \hline
+  int MPI\_Allgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, displs,
+  recvtype, comm) & Gathers data from all tasks and deliver it to all.
+  \\ \hline
+  int MPI\_Allreduce(sendbuf, recvbuf, count, datatype, op, comm) & Combines
+  values from all processes and distribute the result back to all processes.
+  \\ \hline
+  int MPI\_Allgatherv(sendbuf, sendcnts, sdispls, sendtype, recvbuf, recvcnts,
+  rdispls, recvtype, comm) & Sends data from all to all processes, with a
+  displacement.
+  \\ \hline
+  int MPI\_Allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcnt,
+  recvtype, comm) & Sends data from all to all processes.
+  \\ \hline
+  int MPI\_Bcast(buffer, count, datatype, root, comm) & Broadcasts a message
+  from the process with rank {\tt root} to all other processes of the group.
+  \\ \hline
+  int MPI\_Gatherv(sendbuf, sendcnt, sendtype, recvbuf, recvcnts, displs,
+  recvtype, root, comm) & Gathers into specified locations from all processes
+  in a group.
+  \\ \hline
+  int MPI\_Gather(sendbuf, sendcnt, sendtype, recvbuf, recvcount, recvtype,
+  root, comm) & Gathers together values from a group of processes.
+  \\ \hline
+  int MPI\_Recv(buf, count, datatype, source, tag, comm, status) & Basic receive.
+  \\ \hline
+  int MPI\_Reduce\_scatter(sendbuf, recvbuf, recvcnts, datatype, op, comm) &
+  Combines values and scatters the results.
+  \\ \hline
+  int MPI\_Reduce(sendbuf, recvbuf, count, datatype, op, root, comm) &
+  Reduces values on all processes to a single value.
+  \\ \hline
+  int MPI\_Scan(sendbuf, recvbuf, count, datatype, op, comm) &
+  Computes the scan (partial reductions) of data on a collection of processes.
+  \\ \hline
+  int MPI\_Scatter(sendbuf, sendcnt, sendtype, recvbuf, recvcnt, recvtype, root,
+  comm) & Sends data from one task to all other tasks in a group.
+  \\ \hline
+  int MPI\_Sendrecv\_replace(buf, count, datatype, dest, sendtag, source,
+  recvtag, comm, status) & Sends and receives using a single buffer.
+  \\ \hline
+  int MPI\_Sendrecv(sendbuf, sendcount, sendtype, dest, sendtag, recvbuf,
+  recvcount, recvtype, source, recvtag, comm, status) & Sends and receives a
+  message.
+  \\ \hline
+  int MPI\_Send(buf, count, datatype, dest, tag, comm) & Performs a basic send.
   \\ \hline
 \end{tabularx}
 \end{document}
