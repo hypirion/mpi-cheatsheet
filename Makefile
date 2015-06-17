@@ -1,7 +1,10 @@
 MAIN = main
 SUBDIRS = 
 
-.PHONY: repeatedly clean purge
+all: main.pdf
+
+%.pdf: %.tex
+	pdflatex $<
 
 clean:
 	for s in $(TEMPS); do rm -f $(MAIN).$$s; done
@@ -16,3 +19,5 @@ remake:
 
 repeatedly:
 	latexmk -pdf -pdflatex='pdflatex -shell-escape %O %S' -pvc $(MAIN)
+
+.PHONY: repeatedly clean purge
