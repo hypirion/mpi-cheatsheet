@@ -2,6 +2,10 @@
 
 Yet another cheatsheet for MPI.
 
+You can download the latest version of this cheatsheet at
+[the releases page](https://github.com/hyPiRion/mpi-cheatsheet/releases/). Find
+the version you're looking for, then download the pdf attached to that release.
+
 ## Dependencies
 * You will need the [`eulervm` tex style file](https://www.ctan.org/tex-archive/fonts/eulervm/tex/latex/eulervm?lang=en)
 * On Ubuntu Linux, you might need to install the `texlive-fonts-extra` debian package.
